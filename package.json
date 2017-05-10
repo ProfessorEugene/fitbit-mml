@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "fitbit-client-oauth2": "2.0.3",
+    "js2xmlparser":"*",
     "express": "",
     "passport-fitbit-oauth2":"",
     "passport":""
