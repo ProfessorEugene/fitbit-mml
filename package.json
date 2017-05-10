@@ -4,7 +4,9 @@
   "version": "1.0.0-SNAPSHOT",
   "license": "MIT",
   "dependencies": {
-    "fitbit-client-oauth2": "2.0.3"
+    "fitbit-client-oauth2": "2.0.3",
+    "express": "",
+    "passport-fitbit-oauth2":""
   },
   "devDependencies": {
   }
