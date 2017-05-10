@@ -11,8 +11,10 @@ var token = '';
 
 app.get('/data', function(req,res,next) {
 	console.log("token is ", token);
-	//access_token
-	   var options = { /* TIME_SERIES_OPTIONS */ };
+	
+	   var options = { 
+	   		period: '1y'
+	    };
     
     client.getTimeSeries(token, options)
         .then(function(fres) {
