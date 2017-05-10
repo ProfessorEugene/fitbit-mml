@@ -8,7 +8,17 @@ var redirect_uri = 'http://localhost:9999/auth/fitbit/callback';
 var scope =  'activity nutrition profile settings sleep social weight';
 const jsparser = require("js2xmlparser");
 var token = '';
+var data = '';
 
+app.get('/graph', function(req,res,next){
+
+});
+app.get('/data.json', (req,res,next) => {
+	res.json(data.map(d => {
+		return d.summary.sedentaryMinutes;
+	}));
+	//res.json(data);
+});
 app.get('/data', function(req,res,next) {
 	console.log("token is ", token);
    var options = { 
@@ -18,13 +28,14 @@ app.get('/data', function(req,res,next) {
    		'end-time': '23:59:59'
     };
    
-    Promise.all(['05','06','07','08','09','10'].map(day => {
+    Promise.all(['01','02','03','04','05','06','07','08','09','10'].map(day => {
     	var curDate = '2017-05-' + day;
     	console.log('grabbing ',curDate);
     	return client.getDailyActivitySummary(token,{
     		date: curDate
     	});
     })).then((results) => {
+    	data = results;
     	res.set('Content-Type', 'application/xml');
     	res.send(jsparser.parse("patient", results));
     })
