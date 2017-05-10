@@ -25,8 +25,8 @@ app.get('/data', function(req,res,next) {
     		date: curDate
     	});
     })).then((results) => {
+    	res.set('Content-Type', 'application/xml');
     	res.send(jsparser.parse("patient", results));
-    	//res.send(JSON.stringify(results,null,2));
     })
 });
 
