@@ -6,7 +6,8 @@
   "dependencies": {
     "fitbit-client-oauth2": "2.0.3",
     "express": "",
-    "passport-fitbit-oauth2":""
+    "passport-fitbit-oauth2":"",
+    "passport":""
   },
   "devDependencies": {
   }
